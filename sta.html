@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Search The Account – By AIRA</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: white;
+            color: #111827;
+            line-height: 1.5;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 2rem 1.5rem;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .search-card {
+            background: white;
+            border-radius: 48px;
+            padding: 2.5rem 2rem;
+            box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.05);
+            border: 1px solid #eef2f6;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #0f172a;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .sub {
+            font-size: 1rem;
+            color: #4b5563;
+            margin-bottom: 2rem;
+            border-top: 1px solid #e2e8f0;
+            display: inline-block;
+            padding-top: 0.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        label {
+            font-weight: 600;
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #1f2937;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 1rem;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 60px;
+            font-size: 1rem;
+            background: white;
+            transition: 0.2s;
+            font-family: monospace;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: #1e40af;
+            box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
+        }
+
+        .warning-hint {
+            font-size: 0.8rem;
+            color: #6c7a89;
+            margin-top: 0.3rem;
+        }
+
+        .btn-search {
+            background-color: #1e40af;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 700;
+            padding: 1rem 1.5rem;
+            border: none;
+            border-radius: 60px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 1rem;
+            transition: 0.2s;
+        }
+
+        .btn-search:hover {
+            background-color: #0f2b6d;
+        }
+
+        .btn-search:active {
+            transform: scale(0.97);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 2.5rem;
+            font-size: 0.8rem;
+            color: #9ca3af;
+        }
+
+        @media (max-width: 640px) {
+            .search-card {
+                padding: 1.8rem;
+            }
+            h1 {
+                font-size: 1.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="search-card">
+        <h1>🔍 Search The Account</h1>
+        <div class="sub">By AIRA</div>
+
+        <div class="form-group">
+            <label>📌 Type the Account <span style="color:#b91c1c;">(wajib pakai @)</span></label>
+            <input type="text" id="accountInput" placeholder="@username" autocomplete="off">
+            <div class="warning-hint">Contoh: @johndoe atau @bangjago</div>
+        </div>
+
+        <div class="form-group">
+            <label>🌐 Platform</label>
+            <select id="platformSelect">
+                <option value="tiktok">TikTok</option>
+                <option value="instagram">Instagram</option>
+                <option value="youtube">YouTube</option>
+                <option value="other">Lainnya (default search)</option>
+            </select>
+        </div>
+
+        <button class="btn-search" id="searchBtn">🚀 Search</button>
+    </div>
+    <footer>
+        AIRA • Cari akun pelaku kejahatan teknologi dengan mudah
+    </footer>
+</div>
+
+<script>
+    const searchBtn = document.getElementById('searchBtn');
+    const accountInput = document.getElementById('accountInput');
+    const platformSelect = document.getElementById('platformSelect');
+
+    function cleanUsername(raw) {
+        let username = raw.trim();
+        if (!username.startsWith('@')) {
+            // kasih @ di depan otomatis
+            username = '@' + username;
+        }
+        // hapus karakter aneh selain alfanumerik, titik, underscore (minimal)
+        return encodeURIComponent(username);
+    }
+
+    function openAccount() {
+        let rawAccount = accountInput.value.trim();
+        if (rawAccount === "") {
+            alert("❌ Masukkan nama akun terlebih dahulu!");
+            accountInput.focus();
+            return;
+        }
+
+        let username = cleanUsername(rawAccount);
+        let platform = platformSelect.value;
+        let url = "";
+
+        switch (platform) {
+            case "tiktok":
+                // TikTok: https://www.tiktok.com/@username
+                url = `https://www.tiktok.com/${username}`;
+                break;
+            case "instagram":
+                url = `https://instagram.com/${username}`;
+                break;
+            case "youtube":
+                // YouTube pakai @username (modern)
+                url = `https://youtube.com/${username}`;
+                break;
+            case "other":
+                url = `https://www.google.com/search?q=${username}+${platformSelect.options[platformSelect.selectedIndex].text}`;
+                break;
+            default:
+                url = `https://www.google.com/search?q=${username}`;
+        }
+
+        window.open(url, '_blank');
+    }
+
+    searchBtn.addEventListener('click', openAccount);
+    accountInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            openAccount();
+        }
+    });
+</script>
+</body>
+  </html>
