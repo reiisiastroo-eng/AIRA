@@ -1,257 +1,266 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>AIRA – Konsultasi Kejahatan Teknologi</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AIRA – Konsultasi Kejahatan Teknologi</title>
 
-        body {
-            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-            background: white;
-            color: #111827;
-            line-height: 1.5;
-        }
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 2rem 1.5rem;
-        }
+body {
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto;
+    background: #ffffff;
+    color: #0f172a;
+}
 
-        /* Hero halaman utama */
-        .hero {
-            min-height: 70vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
+/* LOGO FIX KIRI ATAS */
+.logo {
+    position: fixed;
+    top: 12px;
+    left: 12px;
+    width: 50px;
+    z-index: 999;
+}
 
-        .hero h1 {
-            font-size: 2rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            color: #0f172a;
-        }
+.logo img {
+    width: 100%;
+    display: block;
+}
 
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            color: #1e293b;
-        }
+/* CONTAINER */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+}
 
-        .btn-konsultasi {
-            background-color: #1e40af;
-            color: white;
-            font-size: 1.5rem;
-            font-weight: 600;
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 80px;
-            cursor: pointer;
-            width: 90%;
-            max-width: 320px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-        }
+/* HERO */
+.hero {
+    min-height: 75vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
 
-        .btn-konsultasi:active {
-            transform: scale(0.97);
-        }
+.hero h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
 
-        /* Card untuk pasal di home */
-        .legal-section {
-            background: #f8fafc;
-            padding: 2rem 1.5rem;
-            border-radius: 40px 40px 0 0;
-            margin-top: 2rem;
-        }
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
 
-        .card {
-            background: white;
-            border-radius: 32px;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-        }
+/* BUTTON */
+.btn-konsultasi {
+    background: #1e40af;
+    color: white;
+    font-size: 1.3rem;
+    font-weight: 600;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 60px;
+    cursor: pointer;
+    width: 90%;
+    max-width: 300px;
+    transition: 0.2s;
+}
 
-        .card h2 {
-            font-size: 1.5rem;
-            border-left: 5px solid #2563eb;
-            padding-left: 1rem;
-            margin-bottom: 1rem;
-        }
+.btn-konsultasi:active {
+    transform: scale(0.95);
+}
 
-        .pasal-box {
-            background: #eff6ff;
-            border-left: 4px solid #dc2626;
-            padding: 1rem;
-            border-radius: 16px;
-            margin: 1rem 0;
-        }
+/* LEGAL SECTION */
+.legal-section {
+    background: #f8fafc;
+    padding: 2rem 1.5rem;
+    border-radius: 40px 40px 0 0;
+}
 
-        /* Halaman form konsultasi */
-        .form-card {
-            background: white;
-            border-radius: 32px;
-            padding: 1.8rem;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-            border: 1px solid #e2e8f0;
-        }
+.card {
+    background: white;
+    border-radius: 24px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
 
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
+.card h2 {
+    font-size: 1.3rem;
+    border-left: 4px solid #2563eb;
+    padding-left: 1rem;
+    margin-bottom: 1rem;
+}
 
-        label {
-            font-weight: 600;
-            display: block;
-            margin-bottom: 0.5rem;
-        }
+.pasal-box {
+    background: #eff6ff;
+    border-left: 4px solid #dc2626;
+    padding: 1rem;
+    border-radius: 12px;
+    margin-top: 1rem;
+}
 
-        select, input, textarea {
-            width: 100%;
-            padding: 0.8rem;
-            border: 1px solid #cbd5e1;
-            border-radius: 20px;
-            font-size: 1rem;
-            background: white;
-        }
+/* FORM */
+.form-card {
+    background: white;
+    border-radius: 24px;
+    padding: 1.5rem;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
 
-        textarea {
-            min-height: 80px;
-        }
+.form-group {
+    margin-bottom: 1.2rem;
+}
 
-        .btn-kirim {
-            background-color: #1e40af;
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border: none;
-            border-radius: 60px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            cursor: pointer;
-            width: 100%;
-        }
+label {
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+    display: block;
+}
 
-        .back-link {
-            display: inline-block;
-            margin-top: 1.5rem;
-            color: #2563eb;
-            text-decoration: none;
-        }
+select, input, textarea {
+    width: 100%;
+    padding: 0.7rem;
+    border-radius: 12px;
+    border: 1px solid #cbd5e1;
+}
 
-        footer {
-            text-align: center;
-            padding: 2rem;
-            font-size: 0.8rem;
-            color: #6c7a89;
-        }
-    </style>
+textarea {
+    min-height: 80px;
+}
+
+.btn-kirim {
+    background: #1e40af;
+    color: white;
+    padding: 0.8rem;
+    border-radius: 40px;
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 1rem;
+    color: #2563eb;
+    text-decoration: none;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 0.8rem;
+    color: #64748b;
+}
+</style>
 </head>
+
 <body>
 
-<!-- Halaman Utama (Dashboard) -->
+<!-- LOGO -->
+<div class="logo">
+    <img src="logo.png" alt="AIRA Logo">
+</div>
+
+<!-- HOME -->
 <div id="homePage">
     <div class="container hero">
-        <h1>Butuh laporan jika ada kejahatan Teknologi?</h1>
-        <p>Ayo Konsultasikan ke AIRA!</p>
+        <h1>Butuh laporan jika ada kejahatan teknologi?</h1>
+        <p>Ayo konsultasikan ke AIRA!</p>
         <button class="btn-konsultasi" id="konsultasiBtn">📢 Konsultasikan</button>
     </div>
 
     <div class="legal-section">
         <div class="card">
             <h2>⚖️ Mengapa ini melanggar hukum?</h2>
-            <p>Menggunakan AI untuk DDoS, jailbreak ilegal, atau percobaan peretasan adalah kejahatan siber berat.</p>
+            <p>Penggunaan AI untuk DDoS, jailbreak ilegal, atau percobaan peretasan termasuk kejahatan siber.</p>
+
             <div class="pasal-box">
-                <strong>UU ITE Pasal 30, 32, 33</strong><br>
-                Ancaman pidana penjara hingga 10 tahun &/ denda miliaran rupiah.
+                <strong>UU ITE Pasal 30–33</strong><br>
+                Dapat dikenakan sanksi pidana dan/atau denda sesuai hukum berlaku.
             </div>
         </div>
     </div>
 </div>
 
-<!-- Halaman Konsultasi (awalnya disembunyikan) -->
-<div id="consultPage" style="display: none;">
+<!-- CONSULT -->
+<div id="consultPage" style="display:none;">
     <div class="container">
         <div class="form-card">
-            <h1 style="font-size: 2rem; margin-bottom: 1rem;">📋 Ruang Konsultasi</h1>
+            <h1>📋 Ruang Konsultasi</h1>
+
             <form id="consultForm" action="https://formspree.io/f/mjglgynb" method="POST">
+
                 <div class="form-group">
-                    <label>Tindakan yang dilakukan *</label>
+                    <label>Tindakan</label>
                     <select name="tindakan" required>
-                        <option value="">Pilih tindakan</option>
-                        <option value="Jailbreak AI">Jailbreak AI</option>
-                        <option value="Meminta Script DDoS">Meminta Script DDoS</option>
-                        <option value="Percobaan Peretasan (bobol)">Percobaan Peretasan (bobol)</option>
-                        <option value="Menyebarkan konten ilegal">Menyebarkan konten ilegal</option>
-                        <option value="Lainnya (tulis manual)">Lainnya (tulis manual)</option>
+                        <option value="">Pilih</option>
+                        <option>Jailbreak AI</option>
+                        <option>DDoS</option>
+                        <option>Peretasan</option>
+                        <option>Konten ilegal</option>
                     </select>
                 </div>
+
                 <div class="form-group">
-                    <label>Tulis tindakan (jika pilih "Lainnya" atau ingin spesifik)</label>
-                    <textarea name="tindakan_detail" placeholder="Contoh: Meminta jailbreak untuk membuat worm..."></textarea>
+                    <label>Detail</label>
+                    <textarea name="detail"></textarea>
                 </div>
+
                 <div class="form-group">
-                    <label>Nama Akun Pelaku (username) *</label>
-                    <input type="text" name="nama_akun" placeholder="Username TikTok / IG / Telegram" required>
+                    <label>Username</label>
+                    <input type="text" name="username" required>
                 </div>
+
                 <div class="form-group">
-                    <label>Platform (opsional)</label>
-                    <input type="text" name="platform" placeholder="TikTok, Telegram, Discord, dll">
+                    <label>Platform</label>
+                    <input type="text" name="platform">
                 </div>
+
                 <div class="form-group">
-                    <label>Bukti tambahan (link/screenshot) opsional</label>
-                    <input type="text" name="bukti" placeholder="https://...">
+                    <label>Bukti (link) [Optional]</label>
+                    <input type="text" name="bukti">
                 </div>
-                <button type="submit" class="btn-kirim">📧 Kirim Laporan!</button>
+
+                <button class="btn-kirim">📧 Kirim</button>
             </form>
-            <a href="#" id="backHome" class="back-link">← Kembali ke Beranda</a>
+
+            <a href="#" id="backHome" class="back-link">← Kembali</a>
         </div>
     </div>
 </div>
 
 <footer>
-    &copy; 2025 AIRA – Lindungi ruang digital
+© 2025 AIRA – Lindungi ruang digital
 </footer>
 
 <script>
-    const homePage = document.getElementById('homePage');
-    const consultPage = document.getElementById('consultPage');
-    const konsultasiBtn = document.getElementById('konsultasiBtn');
-    const backHome = document.getElementById('backHome');
+const homePage = document.getElementById('homePage');
+const consultPage = document.getElementById('consultPage');
 
-    // Pindah ke halaman konsultasi
-    konsultasiBtn.addEventListener('click', () => {
-        homePage.style.display = 'none';
-        consultPage.style.display = 'block';
-        window.scrollTo(0, 0);
-    });
+document.getElementById('konsultasiBtn').onclick = () => {
+    homePage.style.display = 'none';
+    consultPage.style.display = 'block';
+    window.scrollTo(0,0);
+};
 
-    // Kembali ke beranda
-    backHome.addEventListener('click', (e) => {
-        e.preventDefault();
-        homePage.style.display = 'block';
-        consultPage.style.display = 'none';
-        window.scrollTo(0, 0);
-    });
-
-    // Tangani submit form (jika pakai Formspree, otomatis kirim ke email)
-    const form = document.getElementById('consultForm');
-    form.addEventListener('submit', function(e) {
-        // Jika action masih YOUR_ENDPOINT_HERE, tampilkan peringatan
-        if (form.action.includes('YOUR_ENDPOINT_HERE')) {
-            e.preventDefault();
-            alert('🔧 Endpoint email belum diatur. Ganti action form dengan endpoint Formspree lo.\n\nTapi data sudah siap dikirim:\n' + new FormData(form));
-        }
-        // selain itu, biarkan form submit normal ke Formspree (email masuk ke lo)
-    });
+document.getElementById('backHome').onclick = (e) => {
+    e.preventDefault();
+    homePage.style.display = 'block';
+    consultPage.style.display = 'none';
+    window.scrollTo(0,0);
+};
 </script>
+
 </body>
-      </html>
+</html>
